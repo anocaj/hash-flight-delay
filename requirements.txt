@@ -1,0 +1,42 @@
+# Flight Delay Prediction Project Dependencies
+# Core dependencies for HASH Machine Learning Challenge submission
+
+# Core data manipulation and analysis
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Machine learning frameworks
+scikit-learn>=1.3.0
+lightgbm>=4.0.0
+
+# Visualization and plotting
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# External data sources
+meteostat>=1.6.0          # Weather data API
+
+# Timezone and geographic utilities
+pytz>=2023.3              # Timezone handling for weather data
+timezonefinder>=6.2.0     # Airport timezone detection
+
+# Hyperparameter optimization
+optuna>=3.3.0             # Used in model training
+
+# Utilities and progress tracking
+tqdm>=4.65.0              # Progress bars for data loading
+joblib>=1.3.0             # Model serialization
+pathlib                   # Path handling (built-in Python 3.4+)
+
+# Jupyter notebook environment
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Development and testing
+pytest>=7.4.0
+
+# Optional dependencies (not required for core functionality)
+# Uncomment if needed for extended analysis:
+# shap>=0.42.0            # Model explainability (not used in main notebook)
+# folium>=0.14.0          # Interactive maps (not used in main notebook)
+# scipy>=1.11.0          # Scientific computing (indirect dependency)

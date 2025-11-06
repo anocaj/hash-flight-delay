@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Data files
+data/*
+!data/.gitkeep
+!data/README.md       
+*.csv
+*.parquet
+*.h5
+*.pkl
+*.joblib
+
+# Model outputs and artifacts
+# outputs/*
+!outputs/.gitkeep
+# models/
+*.model
+*.joblib
+*.pkl
+
+# Logs and temporary files
+logs/
+*.log
+temp/
+.DS_Store
+.env
+.coverage
+htmlcov/
+.pytest_cache/
+coverage.xml
+*.cover
+
+# Documentation
+docs/_build/
+site/
+
+# Specific to this project
+prepared_flights.csv
+flight_delay_model_*.joblib
+feature_names_*.joblib
+metrics_*.joblib
