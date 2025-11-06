@@ -16,9 +16,9 @@ Predict whether a US domestic flight will be delayed ≥15 minutes (`ARR_DEL15`)
 
 ### Approach
 
-Initial exploration (`initial_exploration.ipynb`) revealed that including `DEP_DELAY` (departure delay) yields >90% AUC—impressive but unrealistic since it's only known after takeoff. Without departure features, baseline performance was only 66% AUC. Actual analysis is provided in main notebook `01_flight_delay_analysis.ipynb`
+Initial exploration (`initial_exploration.ipynb`) showed that including `DEP_DELAY` (departure delay) yields >90% AUC—impressive but unrealistic, as this information is only available after takeoff. Without departure features, baseline performance drops to ~66% AUC. The full analysis is documented in the main notebook, `01_flight_delay_analysis.ipynb`.
 
-**This analysis**: Through systematic feature engineering (70+ features from weather, temporal patterns, aircraft history, carrier performance), achieved **0.77 AUC** using only pre-departure data—enabling actionable predictions 0.5-24 hours in advance.
+Realistic Pre-Departure Analysis: To enable actionable predictions, I engineered 70+ features available before departure—weather, temporal patterns, aircraft and carrier history—and achieved 0.77 AUC.
 
 ### Key Findings
 
