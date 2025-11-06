@@ -152,10 +152,10 @@ As documented in the notebook:
 
 ## Dependencies
 
-**Core**: pandas, numpy, scikit-learn, lightgbm, optuna (tuning)
-**Visualization**: matplotlib, seaborn, shap
-**External Data**: meteostat (weather API), Aircraft Registration registry.faa.gov (https://registry.faa.gov/), airports (https://ourairports.com/data/)
-**Development**: jupyter
+- **Core**: pandas, numpy, scikit-learn, lightgbm, optuna (tuning)
+- **Visualization**: matplotlib, seaborn, shap
+- **External Data**: meteostat (weather API), Aircraft Registration registry.faa.gov (https://registry.faa.gov/), airports (https://ourairports.com/data/)
+- **Development**: jupyter
 
 Full list in `requirements.txt`
 
