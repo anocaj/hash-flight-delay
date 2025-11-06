@@ -163,9 +163,9 @@ Full list in `requirements.txt`
 
 ## Challenge Deliverables
 
-✅ **Feature Importance & Results** - SHAP analysis, top drivers identified
-✅ **Model Approach & Rationale** - Systematic comparison of 3 algorithms
-✅ **Limitations & Bias Analysis** - Honest assessment with mitigation strategies
+- ✅ **Feature Importance & Results** 
+- ✅ **Model Approach & Rationale**
+- ✅ **Limitations**
 
 All deliverables in `notebooks/01_flight_delay_analysis.ipynb` with clear documentation and business context.
 
