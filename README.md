@@ -11,25 +11,28 @@
 ## Project Summary
 
 ### Objective
+
 Predict whether a US domestic flight will be delayed ≥15 minutes (`ARR_DEL15`) using only information available **before departure**.
 
-### The Story
-Initial exploration (`initial_exploration.ipynb`) revealed that including `DEP_DELAY` (departure delay) yields >90% AUC—impressive but unrealistic since it's only known after takeoff. Without departure features, baseline performance was only 66% AUC.
+### Approach
+
+Initial exploration (`initial_exploration.ipynb`) revealed that including `DEP_DELAY` (departure delay) yields >90% AUC—impressive but unrealistic since it's only known after takeoff. Without departure features, baseline performance was only 66% AUC. Actual analysis is provided in main notebook `01_flight_delay_analysis.ipynb`
 
 **This analysis**: Through systematic feature engineering (70+ features from weather, temporal patterns, aircraft history, carrier performance), achieved **0.77 AUC** using only pre-departure data—enabling actionable predictions 0.5-24 hours in advance.
 
 ### Key Findings
 
 **Model Performance**:
+
 - AUC-ROC: 0.77 (solid for pre-departure prediction)
-- Precision/Recall: 0.65/0.58
+- Precision/Recall: 0.65/0.24
 - Model: LightGBM (outperformed Random Forest and Logistic Regression)
 
 **Top Predictive Features**:
 
 ![Flight Delay Cause-Effect Diagram](assets/cause-effect-diagram.png)
 
-*Fishbone diagram showing the six major categories driving flight delays: Weather (storms, wind, precipitation), Scheduling (peak hours, tight connections), External Factors (COVID, strikes, holidays), Aircraft & Maintenance (mechanical issues, aircraft swaps), Airport & Air Traffic (congestion, ATC delays), and Airline Operations (previous flight delays, crew scheduling, gate turnaround).*
+_Fishbone diagram showing the six major categories driving flight delays: Weather (storms, wind, precipitation), Scheduling (peak hours, tight connections), External Factors (COVID, strikes, holidays), Aircraft & Maintenance (mechanical issues, aircraft swaps), Airport & Air Traffic (congestion, ATC delays), and Airline Operations (previous flight delays, crew scheduling, gate turnaround)._
 
 1. Aircraft delay history (previous flight delays for same tail number)
 2. Temporal patterns (time of day, day of week)
@@ -38,6 +41,7 @@ Initial exploration (`initial_exploration.ipynb`) revealed that including `DEP_D
 5. Route characteristics (distance, airport congestion)
 
 **Business Value**:
+
 - Enable proactive passenger rebooking
 - Optimize crew scheduling and resource allocation
 - Reduce cascading delay effects
@@ -66,15 +70,18 @@ hash-flight-delay/
 │       ├── flights_feb_2025.csv
 │       └── airports.csv
 ```
+
 ---
 
 ## Setup & Execution
 
 ### Prerequisites
+
 - Python 3.8+
 - Jupyter Notebook
 
 ### Installation
+
 ```bash
 # Navigate to project
 cd hash-flight-delay
@@ -88,6 +95,7 @@ pip install -r requirements.txt
 ```
 
 ### Run Analysis
+
 ```bash
 # Launch main submission notebook
 jupyter notebook notebooks/01_flight_delay_analysis.ipynb
@@ -101,15 +109,19 @@ jupyter notebook notebooks/01_flight_delay_analysis.ipynb
 ## Technical Approach
 
 ### Data Leakage Prevention
+
 **Excluded** (only known post-departure):
+
 - `DEP_DELAY`, `DEP_DEL15` - Departure delay info
 - `ARR_DELAY` - Target-related
 - `ACTUAL_ELAPSED_TIME`, `AIR_TIME` - Post-flight
 
 **Included** (known pre-departure):
+
 - Scheduled times, historical performance, weather forecasts, temporal patterns
 
 ### Methodology
+
 - **Split**: 60/20/20 train/val/test with stratification
 - **Models Tested**: LightGBM (best), Random Forest, Logistic Regression
 - **Hyperparameter Tuning**: Optuna (5 trials - limited by 6-hour constraint)
